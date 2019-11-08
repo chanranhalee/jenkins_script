@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
-        timestamps()
+        sh 'Init'
       }
     }
     stage('Build') {
