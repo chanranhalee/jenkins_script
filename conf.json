@@ -1,0 +1,10 @@
+{
+    "pipeline_config": {
+        "npu": {
+            "builds": [
+                ["a", "b", "c"],
+                ["d"]
+            ]
+        }
+    }
+}

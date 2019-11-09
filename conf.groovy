@@ -1,6 +1,14 @@
-build_name = 'hello'
+build_name = 'npu'
 
 build_config = [
-    'git': 'your git repository',
-    'build_job': ['bulid_a', 'build_b']
+    'builds': [
+        ['build.firmware'],
+        ['build.caffe', 'build.npuc', 'build.tflitegen', 'generate.tflite'],
+        ['build.framework_dd']
+    ]
+    'tests': [
+        ['test.eden'],
+        ['test.benchmark'],
+        ['test.unittest']
+    ]
 ]
