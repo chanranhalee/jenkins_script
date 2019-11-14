@@ -9,12 +9,13 @@ def getJsonFile(file) {
     return obj 
 }
 
-def getPipelineConfig(conf, ci_module) {
-    return conf["pipeline_config"][ci_module]
-//    return conf.pipeline_config.ci_module
+def getPipelineConfig(ci_module) {
+    def conf = getJsonFile('conf.json')
+    return conf["pipeline_config"]
 }
 
-def conf = getJsonFile('conf.json')
-def ci_module = "npu"
-def pipeline_config = getPipelineConfig(conf, ci_module)
-println(pipeline_config.builds)
+def pipeline_config = getPipelineConfig()
+
+for (build in pipeline_config.builds) {
+    parallel(build)
+}
